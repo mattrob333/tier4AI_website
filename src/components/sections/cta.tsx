@@ -12,7 +12,7 @@ export default function CtaSection() {
     >
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 text-center">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Ready to Elevate Your Organization's AI Journey?
+          Ready to Elevate Your Organization&apos;s AI Journey?
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
           Take the first step towards transforming your enterprise with AI. Our team is ready

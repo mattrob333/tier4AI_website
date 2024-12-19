@@ -97,6 +97,7 @@ export default function Features({
   data = [],
 }: FeaturesProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const carouselRef = useRef<HTMLUListElement>(null);
   const ref = useRef(null);
@@ -137,14 +138,31 @@ export default function Features({
   };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex !== undefined ? (prevIndex + 1) % data.length : 0
-      );
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
     }, collapseDelay);
 
-    return () => clearInterval(timer);
-  }, [currentIndex]);
+    return () => clearInterval(interval);
+  }, [collapseDelay, data.length]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsCollapsed(true);
+    }, collapseDelay);
+
+    return () => clearTimeout(timeout);
+  }, [collapseDelay, currentIndex]);
+
+  useEffect(() => {
+    if (isCollapsed) {
+      const timeout = setTimeout(() => {
+        setIsCollapsed(false);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+      }, 500);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isCollapsed, data.length]);
 
   useEffect(() => {
     const handleAutoScroll = () => {
@@ -237,9 +255,7 @@ export default function Features({
                           } origin-left bg-primary transition-all ease-linear dark:bg-white`}
                           style={{
                             transitionDuration:
-                              currentIndex === index
-                                ? `${collapseDelay}ms`
-                                : "0s",
+                              currentIndex === index ? `${collapseDelay}ms` : "0s",
                           }}
                         ></div>
                       </div>
