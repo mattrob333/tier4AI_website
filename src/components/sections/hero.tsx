@@ -15,15 +15,15 @@ const ease = [0.16, 1, 0.3, 1];
 
 function HeroTitles() {
   return (
-    <div className="mx-auto max-w-[800px] text-center">
-      <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+    <div className="mx-auto max-w-[800px] text-center px-4 sm:px-6 lg:px-8">
+      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
         Accelerate Your Business into the Next Dimension of Automation
       </h1>
-      <p className="mt-6 text-lg leading-8 text-muted-foreground">
+      <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-muted-foreground">
         Tier4AI unifies your data, automates your workflows, and empowers your leadership team—without the busywork.
       </p>
-      <div className="mt-10 flex items-center justify-center gap-x-6">
-        <Button size="lg" className="rounded-full" asChild>
+      <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
+        <Button size="lg" className="w-full sm:w-auto rounded-full" asChild>
           <Link href="/signup">
             Get Started Free
             <ArrowRight className="ml-2 h-4 w-4" />
@@ -31,7 +31,7 @@ function HeroTitles() {
         </Button>
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" size="lg" className="rounded-full">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full">
               Watch Demo (90s)
               <PlayCircle className="ml-2 h-4 w-4" />
             </Button>
@@ -57,12 +57,12 @@ function HeroTitles() {
 
 export default function Hero() {
   return (
-    <Section id="hero">
-      <div className="relative flex w-full flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
+    <Section id="hero" className="overflow-hidden">
+      <div className="relative flex w-full flex-col items-center justify-start pt-20 sm:pt-24 md:pt-32">
         {/* DotPattern Background */}
         <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
           <DotPattern
-            className="opacity-10 brightness-75 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
+            className="opacity-10 brightness-75 scale-90 sm:scale-100 [mask-image:radial-gradient(400px_circle_at_center,white,transparent)] sm:[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
           />
         </div>
         {/* Hero Content with higher z-index */}

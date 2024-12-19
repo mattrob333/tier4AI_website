@@ -71,7 +71,6 @@ export default function Header() {
             <Button size="sm" asChild>
               <Link href="/signup">Get Started Free</Link>
             </Button>
-            <ThemeToggle />
           </div>
         </div>
 
@@ -86,10 +85,13 @@ export default function Header() {
             </DrawerTrigger>
             <DrawerContent>
               <DrawerHeader className="border-b pb-4">
-                <Link href="/" className="flex items-center space-x-2">
-                  <Icons.logo className="h-6 w-6" />
-                  <span className="font-bold">Tier 4 AI</span>
-                </Link>
+                <div className="flex items-center justify-between">
+                  <Link href="/" className="flex items-center space-x-2">
+                    <Icons.logo className="h-6 w-6" />
+                    <span className="font-bold">Tier 4 AI</span>
+                  </Link>
+                  <ThemeToggle />
+                </div>
               </DrawerHeader>
               <div className="flex flex-col gap-4 p-4">
                 <nav className="grid gap-2">
@@ -119,7 +121,6 @@ export default function Header() {
               </div>
             </DrawerContent>
           </Drawer>
-          <ThemeToggle />
         </div>
       </div>
     </header>
