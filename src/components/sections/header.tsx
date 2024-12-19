@@ -12,6 +12,7 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTrigger } from "@/components
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   {
@@ -70,11 +71,12 @@ export default function Header() {
             <Button size="sm" asChild>
               <Link href="/signup">Get Started Free</Link>
             </Button>
+            <ThemeToggle />
           </div>
         </div>
 
         {/* Mobile Navigation (Drawer) */}
-        <div className="flex items-center lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <Drawer>
             <DrawerTrigger asChild>
               <Button variant="ghost" className="h-8 w-8 p-0">
@@ -83,37 +85,41 @@ export default function Header() {
               </Button>
             </DrawerTrigger>
             <DrawerContent>
-              <DrawerHeader>
+              <DrawerHeader className="border-b pb-4">
                 <Link href="/" className="flex items-center space-x-2">
                   <Icons.logo className="h-6 w-6" />
                   <span className="font-bold">Tier 4 AI</span>
                 </Link>
               </DrawerHeader>
-              <nav className="grid gap-2 p-4">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="flex items-center text-sm font-medium text-muted-foreground hover:text-primary"
-                  >
-                    {item.title}
-                  </Link>
-                ))}
-                <Link
-                  href="/login"
-                  className="text-sm font-medium text-muted-foreground hover:text-primary"
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/signup"
-                  className="text-sm font-medium text-muted-foreground hover:text-primary"
-                >
-                  Get Started Free
-                </Link>
-              </nav>
+              <div className="flex flex-col gap-4 p-4">
+                <nav className="grid gap-2">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="flex items-center text-sm font-medium text-muted-foreground hover:text-primary"
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </nav>
+                <div className="border-t pt-4">
+                  <div className="flex flex-col gap-2">
+                    <Link
+                      href="/login"
+                      className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "w-full justify-start")}
+                    >
+                      Login
+                    </Link>
+                    <Button size="sm" asChild className="w-full">
+                      <Link href="/signup">Get Started Free</Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </DrawerContent>
           </Drawer>
+          <ThemeToggle />
         </div>
       </div>
     </header>
