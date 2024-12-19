@@ -5,7 +5,22 @@ import { cn, constructMetadata } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-export const metadata: Metadata = constructMetadata({});
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Tier4AI",
+    default: "Tier4AI - Next Dimension of Automation",
+  },
+  description: "Tier4AI unifies your data, automates your workflows, and empowers your leadership team—without the busywork.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      }
+    ],
+    shortcut: "/favicon.svg",
+  },
+};
 
 export const viewport: Viewport = {
   colorScheme: "light",
@@ -25,6 +40,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>Tier4AI - Next Dimension of Automation</title>
       </head>
       <body
         className={cn(
