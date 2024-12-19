@@ -37,7 +37,7 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
             <Icons.logo className="h-6 w-6" />
-            <span className="hidden font-bold sm:inline-block">
+            <span className="font-bold">
               Tier 4 AI
             </span>
           </Link>
@@ -75,7 +75,8 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation (Drawer) */}
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-4 lg:hidden">
+          <ThemeToggle />
           <Drawer>
             <DrawerTrigger asChild>
               <Button variant="ghost" className="h-8 w-8 p-0">
